@@ -6,14 +6,14 @@ using namespace std;
 class teacherlist {
 private:
     string privfilename = "";
-    Teacher** teachers;
+    Teacher* teachers;
     int size;
 
 public:
     teacherlist();
     ~teacherlist();
 
-    void addTeacher(Teacher** name);
+    void addTeacher(Teacher* name);
     void deleteTeacher(int index);
     void readFromFile(const string& filename);
 

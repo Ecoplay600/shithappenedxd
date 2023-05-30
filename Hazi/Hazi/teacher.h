@@ -9,6 +9,8 @@ class Teacher {
 	string name;
 	string timetable[5][6];
 public:
+	Teacher() {}
+
 	Teacher(const string& nev);
 
 	void reName(const string& nev);
