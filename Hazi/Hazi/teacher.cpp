@@ -10,6 +10,7 @@ Teacher::Teacher(const string& nev) {
     }
 };
 
+
 string Teacher::getName() {
 	return name;
 }
@@ -18,7 +19,11 @@ void Teacher::addSubj(int rowpar, int colpar, const string& subject) {
     timetable[rowpar][colpar] = subject;
 };
 
-void Teacher::removeSubj(int rowpar, int colpar) {
+void Teacher::editSubj(int rowpar, int colpar, const string& subject) {
+    timetable[rowpar][colpar] = subject;
+};
+
+void Teacher::delSubj(int rowpar, int colpar) {
     timetable[rowpar][colpar] = "-";
 };
 
@@ -29,12 +34,3 @@ void Teacher::reName(const string& nev){
 string Teacher::getSubj(int rowpar, int colpar) {
     return timetable[rowpar][colpar];
 }
-
-void Teacher::operator=(Teacher& other) {
-    name = other.name;
-    for (int j = 0; j < 5; j++) {
-        for (int k = 0; k < 6; k++) {
-            timetable[j][k] = other.timetable[j][k];
-        } 
-    }
-};

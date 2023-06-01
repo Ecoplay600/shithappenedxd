@@ -19,9 +19,9 @@ public:
 
 	void addSubj(int rowpar, int colpar, const string& subject);
 
-	void removeSubj(int rowpar, int colpar);
+	void delSubj(int rowpar, int colpar);
+
+	void editSubj(int rowpar, int colpar, const string& subject);
 
 	string getSubj(int rowpar, int colpar);
-
-	void operator=(Teacher &other);
 };

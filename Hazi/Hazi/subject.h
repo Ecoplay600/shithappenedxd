@@ -4,14 +4,14 @@ using namespace std;
 
 class Subject {
 private:
-    string privfilename = "";
+    string privfilename = "subjects.txt";
     string* strings; // Dinamikus tömb
     int size; // Tömb mérete
 public:
     Subject();
-    ~Subject();
 
-    void readFromFile(const string& filename);
+    void save();
+    void readFromFile();
     void addString(string& str);
     void deleteString(int index);
     void dispSubject() const;

@@ -6,19 +6,24 @@ using namespace std;
 
 Subject::Subject() : strings(nullptr), size(0) {}
 
-Subject::~Subject() {
+void Subject::save() {
     ofstream file(privfilename);
-    for (int i = 0; i < size; i++) {
+    if (file.is_open()) {
+        for (int i = 0; i < size; i++) {
             file << strings[i] << "\n"; // Stringek kiírása a fájlba, "\n" elválasztóval
         }
-    file.close(); // Fájl bezárása
+        file.close(); // Fájl bezárása
 
-    delete[] strings; // Tömb felszabadítása
+        delete[] strings; // Tömb felszabadítása
+    }
+    else {
+        cout << "Hiba: Nem sikerult megnyitni a file-t." << endl;
+    }
+    
 }
 
-void Subject::readFromFile(const string& filename) {
-    privfilename = filename;
-    ifstream file(filename); // File megnyitása
+void Subject::readFromFile() {
+    ifstream file(privfilename); // File megnyitása
 
     if (file.is_open()) {
         string line;
@@ -87,7 +92,7 @@ string& Subject::operator[](int index) {
 
 void Subject::dispSubject() const {
     for (int i = 0; i < size; i++) {
-        cout << i+1 << ". " << strings[i] << endl;
+        cout << "<" << i + 1 << ">" << " " << strings[i] << endl;
     }
     cout << endl;
 }

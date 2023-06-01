@@ -1,29 +1,30 @@
 #include "teacher.h"
 #include <string>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
 class teacherlist {
 private:
-    string privfilename = "";
+    string privfilename = "teachers.txt";
     Teacher* teachers;
     int size;
 
 public:
     teacherlist();
-    ~teacherlist();
-
+    void save();
     void addTeacher(Teacher* name);
-    void deleteTeacher(int index);
-    void readFromFile(const string& filename);
+    void modSubj(const int tindex, const int i, const int j,const string& newsubj);
+    void delSubj(const int tindex,const int i, const int j);
+    void deleteTeacher(const int index);
+    void readFromFile();
 
-    Teacher& operator[](int index);
+    Teacher& operator[](const int index);
 
-    int getSize() const;
+    int getSize();
+    void dispTeachers();
 
-    void clear();
-    void resize();
-
-    void dispTeacherList() const;
+    void dispTeacherTimeTable(const int i) const;
 };
 
