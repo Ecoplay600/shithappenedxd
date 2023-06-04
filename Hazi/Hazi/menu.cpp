@@ -88,14 +88,14 @@ void menu::dispEditSubj(const int tindex) {
 	int j;
 	cin >> val;
 	if (stoi(val) < 6) {
-		i = int (stoi(val));
+		i = int (stoi(val)-1);
 		menucls();
 		cout << "Melyik idopontban?" << endl;
 		cout << "<1> 8:15-9:45" << endl << "<2> 10:15 - 11:45" << endl << "<3> 12:15 - 13:45" << endl << "<4> 14:15 - 15:45" << endl;
 		cout << "<5> 16:15 - 17:45" << endl << "<6> 18:15 - 19:45" << endl;
 		cin >> val;
 		if (stoi(val) < 7) {
-			j = int(stoi(val));
+			j = int(stoi(val)-1);
 			menucls();
 			cout << "Mire akarod cserelni?" << endl;
 			sl.dispSubject();
@@ -130,7 +130,7 @@ void menu::dispDelSubj(const int tindex) {
 		cin >> val;
 		if (stoi(val) < 7) {
 			j = int(stoi(val));
-			tl.delSubj(tindex, i, j);
+			tl.delSubj(tindex, i-1, j-1);
 			menucls();
 			dispTeachers();
 		}
